@@ -1,8 +1,8 @@
 KPI.IO
 =======
 ## Introduction
-KPI.IO is a custom analytics backend.
-You can easily send your data, analyse your data and visualize your data.
+[KPI.IO](http://kpi.io) is a custom analytics backend.
+You can easily send, analyse and visualize your data.
 
 ## .Net API
 The example below shows you how to send data in your .Net application.
@@ -34,6 +34,7 @@ The example below shows you how to send data in your .Net application.
 		quantity = 2,
 		totalPrice = 7.98
 	};
+	
 	factory.AddData("sales", data);
 
 
