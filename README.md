@@ -13,7 +13,7 @@ The example below shows you how to send data in your .Net application.
 	config.WriteKey = "write-key";
 
 	// Create factory object using config
-	KPIFactory factory = new KPIFactory(config);
+	KPIDispatcher dispatcher = new KPIDispatcher(config);
 
 	// Prepare your event data
 	Order data = new Order {
@@ -35,7 +35,7 @@ The example below shows you how to send data in your .Net application.
 		totalPrice = 7.98
 	};
 	
-	factory.AddData("sales", data);
+	dispatcher.AddData("sales", data);
 
 
 
