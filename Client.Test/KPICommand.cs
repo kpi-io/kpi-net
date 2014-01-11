@@ -41,7 +41,7 @@ namespace Client.Test
         public void add_data()
         {
             Console.WriteLine("add_data start");
-            KPIFactory factory = new KPIFactory(new KPIConfiguration("519f23ee180b7b1f74dedc96", null, null, null, "w", 5));
+            KPIDispatcher dispatcher = new KPIDispatcher(new KPIConfiguration("519f23ee180b7b1f74dedc96", null, null, null, "w", 5));
             List<Data> list = new List<Data>();
 
             list.Add(new Data(1, "bir"));
@@ -81,7 +81,7 @@ namespace Client.Test
                 MaxDegreeOfParallelism = 8
             }, (item) =>
             {
-                factory.AddData("command_test", item, (err) =>
+                dispatcher.Send("command_test", item, (err) =>
                 {
                     Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
                     Assert.Fail();
@@ -91,113 +91,7 @@ namespace Client.Test
                 });
             });
 
-            /*
-            factory.AddData("command_test", new Data(1, "bir"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(2, "iki"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(3, "üç"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(4, "dört"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(5, "beş"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(6, "altı"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(7, "yedi"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(8, "sekiz"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(9, "dokuz"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(10, "on"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(11, "onbir"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(12, "oniki"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            factory.AddData("command_test", new Data(13, "onüç"), (err) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(err));
-                Assert.Fail();
-            }, (obj) =>
-            {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj));
-            });
-            */
-            factory.Command("command_test").Flush();
+            dispatcher.Command("command_test").Flush();
             Thread.Sleep(1000);
         }
     }

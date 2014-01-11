@@ -51,7 +51,7 @@
     <Compile Include="KPICommand.cs" />
     <Compile Include="KPIConfiguration.cs" />
     <Compile Include="KPIConstants.cs" />
-    <Compile Include="KPIFactory.cs" />
+    <Compile Include="KPIDispatcher.cs" />
     <Compile Include="KPISecureClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

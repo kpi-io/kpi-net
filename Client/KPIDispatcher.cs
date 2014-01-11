@@ -22,19 +22,19 @@ using System.Text;
 
 namespace KPI.Client
 {
-    public class KPIFactory
+    public class KPIDispatcher
     {
         private object lockObj = new object();
         public KPIConfiguration Config { get; private set; }
         private Dictionary<string, KPICommand> commands = new Dictionary<string, KPICommand>();
 
-        public KPIFactory()
+        public KPIDispatcher()
             : this(null)
         {
 
         }
 
-        public KPIFactory(KPIConfiguration config)
+        public KPIDispatcher(KPIConfiguration config)
         {
             this.Configure(config);
         }
@@ -59,7 +59,7 @@ namespace KPI.Client
             return this.commands[collection];
         }
 
-        public void AddData(string collection, object data, OnErrorHandler onError = null, OnDataAddedHandler onSuccess = null)
+        public void Send(string collection, object data, OnErrorHandler onError = null, OnDataAddedHandler onSuccess = null)
         {
             var command = this.Command(collection);
             command.AddData(data, onError, onSuccess);
