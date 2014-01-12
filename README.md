@@ -12,7 +12,7 @@ The example below shows you how to send data in your .Net application.
 	config.ProjectId = "project-id";
 	config.WriteKey = "write-key";
 
-	// Create factory object using config
+	// Create dispatcher object using config
 	KPIDispatcher dispatcher = new KPIDispatcher(config);
 
 	// Prepare your event data
