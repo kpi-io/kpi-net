@@ -32,20 +32,9 @@ namespace KPI.Client
         public string WriteKey { get; set; }
         public int BatchSize { get; set; }
 
-        public KPIConfiguration(
-            string projectId = null, 
-            string masterKey = null, 
-            string projectKey = null, 
-            string readKey = null, 
-            string writeKey = null, 
-            int batchSize = KPIConstants.BatchSize)
+        public KPIConfiguration()
         {
-            this.ProjectId = projectId;
-            this.MasterKey = masterKey;
-            this.ProjectKey = projectKey;
-            this.ReadKey = readKey;
-            this.WriteKey = writeKey;
-            this.BatchSize = batchSize;
+            this.BatchSize = KPIConstants.BatchSize;
         }
     }
 }

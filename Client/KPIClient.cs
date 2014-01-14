@@ -28,15 +28,7 @@ namespace KPI.Client
 {
     internal class KPIClient
     {
-        private string SerializeObject(object obj)
-        {
-            if (obj == null)
-            {
-                return null;
-            }
-            return null;
-        }
-
+        
         protected virtual WebRequest CreateRequest(string method, string path, IDictionary<string, object> parameters, object body)
         {
             var url = this.Url(path);

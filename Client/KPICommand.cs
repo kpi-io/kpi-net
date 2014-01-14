@@ -23,6 +23,7 @@ using System.Text;
 namespace KPI.Client
 {
     public delegate void testDelegate(int a);
+    
     public class KPICommand
     {
         private object lockObj = new object();

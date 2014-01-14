@@ -41,7 +41,7 @@ namespace Client.Test
         public void add_data()
         {
             Console.WriteLine("add_data start");
-            KPIDispatcher dispatcher = new KPIDispatcher(new KPIConfiguration("519f23ee180b7b1f74dedc96", null, null, null, "w", 5));
+            KPIDispatcher dispatcher = new KPIDispatcher(new KPIConfiguration { ProjectId = "519f23ee180b7b1f74dedc96", WriteKey = "w", BatchSize = 5 });
             List<Data> list = new List<Data>();
 
             list.Add(new Data(1, "bir"));
